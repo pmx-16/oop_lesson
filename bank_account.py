@@ -17,7 +17,10 @@ class AccountDB:
             if self.account_database[i].account_number == account_num:
                 return i
         return -1
-    
+        
+    def delete(self, account):
+        self.account_database.remove(account)
+        
     def __str__(self):
         s = ''
         for account in self.account_database:
@@ -54,11 +57,13 @@ my_account_DB.insert(account3)
 my_account_DB.insert(account4)
 my_account_DB.insert(account5)
 print(my_account_DB)
-# #print(account1, account2, account3, account4, account5)
-# print(account3)
-# account3.deposit(50)
-# print(account3)
-# account3.withdraw(100)
-# print(account3)
-# account3.withdraw(6000)
-# print(account3)
+print(account1, account2, account3, account4, account5)
+print(account3)
+account3.deposit(50)
+print(account3)
+account3.withdraw(100)
+print(account3)
+account3.withdraw(6000)
+print(account3)
+my_account_DB.delete(account4) #Test code for new method
+print(my_account_DB) #Test code for new method
