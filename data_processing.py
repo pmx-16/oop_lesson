@@ -95,3 +95,19 @@ my_table2 = my_DB.search('countries')
 my_table3 = my_table1.join(my_table2, 'country')
 my_table3_filtered = my_table3.filter(lambda x: x['EU'] == 'no').filter(lambda x: float(x['temperature']) < 5.0)
 print(my_table3_filtered.table)
+my_table4 = my_table1.join(my_table2, 'country')
+my_table4_filtered = my_table4.filter(lambda x: x['EU'] == 'yes').filter(lambda x: x['coastline'] == 'no') #filter for cities in EU without coastline
+temps2 = []
+for item2 in my_table4_filtered.table:
+    temps2.append(float(item2['temperature'])) # append temperature into new list
+print(my_table4_filtered)
+print(temps) #List Test
+print(temps2) #List Test
+print(f'min temp: {min(temps2)}') #Test code for min temp
+print(f'max temp: {max(temps2)}') #Test code for max temp
+my_table5 = my_table1.join(my_table2, 'country') #created table 5
+latitude = []
+for item3 in my_table5.table:
+    latitude.append(float(item3['latitude'])) # append latitude into new list
+print(f'min lati: {min(latitude)}') #Test code for min latitude
+print(f'max lati: {max(latitude)}') #Test code for max latitude
